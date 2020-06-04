@@ -24,7 +24,7 @@ schedule("* 1 * * *",  async function () {
     });
     
     db.parallelize(async () => {
-      const startDate = moment().subtract(1, "month").format("YYYY-MM-DD");
+      const startDate = moment().subtract(2, "day").format("YYYY-MM-DD");
       db.all(GetMessageSql, [startDate], async (err, rows: MessageEntity[]) => {
         if (err) {
           throw err;
@@ -32,7 +32,7 @@ schedule("* 1 * * *",  async function () {
         for (var i = 0; i < rows.length; i++) {
           const message = new Message(rows[i]);
           message.attachments = await getMessageAttachments(db, rows[i].ROWID);
-          const response = await fetch(appSettings.memetricsUrl, {
+          const response = await fetch(`${appSettings.memetricsUrl}/api/v1/messages`, {
              method: "POST",
              body: JSON.stringify(message),
              headers: {
