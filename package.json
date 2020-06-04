@@ -1,0 +1,25 @@
+{
+  "name": "memetrics-imessage-updater",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node-cron": "^2.0.3",
+    "@types/node-fetch": "^2.5.7",
+    "@types/sqlite3": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "moment": "^2.26.0",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.0",
+    "sqlite3": "^4.2.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "ts-node src/server.ts"
+  },
+  "author": "tyler.p.hirschel@gmail.com",
+  "license": "ISC"
+}
