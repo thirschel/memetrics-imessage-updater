@@ -15,7 +15,7 @@ const sqlite3 = verbose();
 const app = express();
 let appSettings: Appsettings = data;
 
-schedule("* 1 * * *",  async function () {
+schedule("0 0 1 * * *",  async function () {
   console.log('Starting execution')
     let db = new sqlite3.Database(appSettings.dbPath, (err) => {
        if (err) {
